@@ -1,83 +1,60 @@
 import React from 'react';
-import { Head, Link } from '@inertiajs/react';
-import AdminLayout from '@/Layouts/AdminLayout';
-import Card from '@/Components/ui/Card';
-import Badge from '@/Components/ui/Badge';
+import DashboardLayout from '@/Layouts/DashboardLayout';
+import { Head } from '@inertiajs/react';
 
-export default function Dashboard({ stats, recentBookings }) {
+export default function Dashboard({ auth }) {
     return (
-        <AdminLayout>
-            <Head title="Admin Dashboard" />
-            
-            <div className="mb-8">
-                <h2 className="text-3xl font-serif text-primary-dark mb-2">Ringkasan Hari Ini</h2>
-                <p className="text-text-secondary">Statistik operasional PilatesFlow Studio.</p>
-            </div>
+        <DashboardLayout user={auth?.user} headerTitle="Dashboard">
+            <Head title="Dashboard" />
 
-            <div className="grid md:grid-cols-3 gap-6 mb-8">
-                <StatCard title="Jadwal Hari Ini" value={stats.todaySchedules} suffix="Kelas" />
-                <StatCard title="Total Member Aktif" value={stats.totalMembers} suffix="Orang" />
-                <StatCard 
-                    title="Total Pendapatan" 
-                    value={new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(stats.totalRevenue)} 
-                />
-            </div>
-
-            <Card>
-                <Card.Header>
-                    <h3 className="text-xl font-serif text-primary-dark">Booking Terbaru</h3>
-                </Card.Header>
-                <Card.Body className="p-0">
-                    <div className="overflow-x-auto">
-                        <table className="w-full text-left text-sm">
-                            <thead className="bg-background border-b border-[#F0EBE1]">
-                                <tr>
-                                    <th className="px-6 py-4 font-medium text-text-secondary">Member</th>
-                                    <th className="px-6 py-4 font-medium text-text-secondary">Kelas</th>
-                                    <th className="px-6 py-4 font-medium text-text-secondary">Tanggal Booking</th>
-                                    <th className="px-6 py-4 font-medium text-text-secondary">Status</th>
-                                </tr>
-                            </thead>
-                            <tbody className="divide-y divide-[#F0EBE1]">
-                                {recentBookings.length === 0 ? (
-                                    <tr>
-                                        <td colSpan="4" className="px-6 py-8 text-center text-text-secondary">
-                                            Belum ada data booking.
-                                        </td>
-                                    </tr>
-                                ) : (
-                                    recentBookings.map((booking) => (
-                                        <tr key={booking.id} className="hover:bg-background/50 transition">
-                                            <td className="px-6 py-4 font-medium">{booking.user?.name}</td>
-                                            <td className="px-6 py-4">{booking.class_schedule?.title}</td>
-                                            <td className="px-6 py-4">{new Date(booking.created_at).toLocaleDateString('id-ID')}</td>
-                                            <td className="px-6 py-4">
-                                                <Badge variant={booking.status === 'booked' ? 'primary' : 'default'}>
-                                                    {booking.status}
-                                                </Badge>
-                                            </td>
-                                        </tr>
-                                    ))
-                                )}
-                            </tbody>
-                        </table>
+            {/* Bento Grid Area */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                
+                {/* Hero / Greeting Card */}
+                <div className="md:col-span-2 bg-sage-500 rounded-3xl p-8 text-ivory relative overflow-hidden shadow-sm">
+                    {/* Decorative element */}
+                    <div className="absolute top-0 right-0 p-8 opacity-10">
+                        <svg className="w-48 h-48" viewBox="0 0 200 200" fill="currentColor">
+                            <circle cx="100" cy="100" r="100" />
+                        </svg>
                     </div>
-                </Card.Body>
-            </Card>
-        </AdminLayout>
-    );
-}
 
-function StatCard({ title, value, suffix }) {
-    return (
-        <Card className="border-l-4 border-l-primary">
-            <Card.Body>
-                <p className="text-sm text-text-secondary font-medium mb-2">{title}</p>
-                <div className="flex items-baseline gap-2">
-                    <span className="text-3xl font-bold text-text-primary">{value}</span>
-                    {suffix && <span className="text-sm text-text-secondary font-medium">{suffix}</span>}
+                    <div className="relative z-10">
+                        <h2 className="font-serif text-3xl font-medium mb-2">Selamat pagi, {auth?.user?.name || 'Nadia'}!</h2>
+                        <p className="text-sage-100 mb-8 max-w-md text-lg">Siap untuk sesi hari ini? Kelas Anda berikutnya akan dimulai dalam 2 jam.</p>
+                        
+                        <div className="bg-ivory/10 backdrop-blur-md rounded-2xl p-5 inline-block border border-ivory/20">
+                            <p className="text-sm text-sage-100 mb-1">Upcoming Class</p>
+                            <p className="font-serif text-xl font-medium">Reformer Foundation</p>
+                            <p className="text-sm text-sage-100 mt-2 flex items-center gap-2">
+                                <span>10:00 - 11:00</span>
+                                <span className="w-1 h-1 rounded-full bg-sage-300"></span>
+                                <span>Studio A</span>
+                            </p>
+                        </div>
+                    </div>
                 </div>
-            </Card.Body>
-        </Card>
+
+                {/* Membership Card */}
+                <div className="bg-surface rounded-3xl p-6 shadow-sm border border-gray-100 flex flex-col justify-between">
+                    <div>
+                        <h3 className="text-text-secondary font-medium mb-1">Sisa Kuota</h3>
+                        <div className="flex items-end gap-2 mb-2">
+                            <span className="font-serif text-5xl font-medium text-text-primary">8</span>
+                            <span className="text-text-secondary pb-1">sesi</span>
+                        </div>
+                        <p className="text-sm text-text-secondary">Paket Reformer 12x</p>
+                    </div>
+                    
+                    <div className="mt-6 pt-6 border-t border-gray-100">
+                        <p className="text-sm text-text-secondary mb-3">Berlaku sampai 28 Agustus 2026</p>
+                        <button className="w-full py-3 bg-sage-100 text-primary-dark font-medium rounded-xl hover:bg-sage-300 transition-colors">
+                            Perpanjang Paket
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </DashboardLayout>
     );
 }
