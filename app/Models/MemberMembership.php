@@ -20,8 +20,8 @@ class MemberMembership extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function membershipPackage()
+    public function pricingPackage()
     {
-        return $this->belongsTo(MembershipPackage::class);
+        return $this->belongsTo(PricingPackage::class);
     }
 }

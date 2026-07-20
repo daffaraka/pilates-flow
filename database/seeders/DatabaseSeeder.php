@@ -3,7 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\User;
-use App\Models\MembershipPackage;
+use App\Models\PricingPackage;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Hash;
@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
     {
         // 1. Create Roles
         $adminRole = Role::create(['name' => 'admin']);
-        $instructorRole = Role::create(['name' => 'instructor']);
+        $coachRole = Role::create(['name' => 'coach']);
         $memberRole = Role::create(['name' => 'member']);
 
         // 2. Create Admin User
@@ -28,17 +28,11 @@ class DatabaseSeeder extends Seeder
         ]);
         $admin->assignRole($adminRole);
 
-        // 3. Create Instructor User
-        $instructorUser = User::create([
-            'name' => 'Jane Instructor',
-            'email' => 'jane@pilates.com',
-            'password' => Hash::make('password'),
-        ]);
-        $instructorUser->assignRole($instructorRole);
-
-        $instructorUser->instructor()->create([
+        // 3. Create Coach
+        \App\Models\Coach::create([
+            'name' => 'Jane Coach',
+            'specialty' => 'Reformer Pilates',
             'bio' => 'Certified Pilates Instructor with 5 years of experience.',
-            'specialization' => 'Reformer Pilates',
         ]);
 
         // 4. Create Member User
@@ -50,10 +44,10 @@ class DatabaseSeeder extends Seeder
         $member->assignRole($memberRole);
 
         // 5. Create Packages
-        MembershipPackage::insert([
+        \App\Models\PricingPackage::insert([
             [
                 'name' => 'Paket 1 Sesi (Drop-in)',
-                'session_count' => 1,
+                'sessions_count' => 1,
                 'price' => 150000,
                 'validity_days' => 14,
                 'created_at' => now(),
@@ -61,7 +55,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'name' => 'Paket 4 Sesi',
-                'session_count' => 4,
+                'sessions_count' => 4,
                 'price' => 550000,
                 'validity_days' => 30,
                 'created_at' => now(),
@@ -69,12 +63,20 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'name' => 'Paket 8 Sesi',
-                'session_count' => 8,
+                'sessions_count' => 8,
                 'price' => 1000000,
                 'validity_days' => 60,
                 'created_at' => now(),
                 'updated_at' => now(),
             ]
+        ]);
+
+        // 6. Create Example Class
+        \App\Models\PilatesClass::create([
+            'name' => 'Reformer Basic',
+            'description' => 'Kelas fundamental untuk pengenalan mesin reformer.',
+            'duration' => 60,
+            'level' => 'beginner',
         ]);
     }
 }

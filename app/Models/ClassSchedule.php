@@ -15,9 +15,14 @@ class ClassSchedule extends Model
         'date' => 'date',
     ];
 
-    public function instructor()
+    public function coach()
     {
-        return $this->belongsTo(Instructor::class);
+        return $this->belongsTo(Coach::class);
+    }
+
+    public function pilatesClass()
+    {
+        return $this->belongsTo(PilatesClass::class, 'class_id');
     }
 
     public function bookings()

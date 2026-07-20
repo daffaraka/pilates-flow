@@ -7,15 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class PricingPackage extends Model
 {
     protected $fillable = [
-        'name', 'description', 'price', 'period', 'features',
-        'is_featured', 'is_active', 'sort_order',
+        'name', 'description', 'price', 'sessions_count', 'validity_days'
     ];
 
     protected $casts = [
-        'features' => 'array',
         'price' => 'decimal:2',
-        'is_featured' => 'boolean',
-        'is_active' => 'boolean',
     ];
 
     public function scopeActive($query)

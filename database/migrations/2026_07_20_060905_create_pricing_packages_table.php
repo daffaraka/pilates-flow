@@ -13,11 +13,8 @@ return new class extends Migration
             $table->string('name');
             $table->text('description')->nullable();
             $table->decimal('price', 10, 2);
-            $table->string('period');
-            $table->json('features')->nullable();
-            $table->boolean('is_featured')->default(false);
-            $table->boolean('is_active')->default(true);
-            $table->integer('sort_order')->default(0);
+            $table->integer('sessions_count')->default(1);
+            $table->integer('validity_days')->default(30);
             $table->timestamps();
         });
     }

@@ -10,25 +10,12 @@ class PilatesClass extends Model
     protected $table = 'classes';
 
     protected $fillable = [
-        'title', 'slug', 'category', 'level', 'description', 'photo',
-        'duration_minutes', 'equipment', 'focus_area', 'capacity',
-        'is_active', 'sort_order',
+        'name', 'description', 'duration', 'level', 'image_url', 'is_active'
     ];
 
     protected $casts = [
-        'equipment' => 'array',
-        'focus_area' => 'array',
         'is_active' => 'boolean',
     ];
-
-    protected static function booted(): void
-    {
-        static::creating(function (PilatesClass $class) {
-            if (empty($class->slug)) {
-                $class->slug = Str::slug($class->title);
-            }
-        });
-    }
 
     public function scopeActive($query)
     {

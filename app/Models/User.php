@@ -38,10 +38,7 @@ class User extends Authenticatable implements FilamentUser
         ];
     }
 
-    public function instructor()
-    {
-        return $this->hasOne(Instructor::class);
-    }
+
 
     public function memberships()
     {

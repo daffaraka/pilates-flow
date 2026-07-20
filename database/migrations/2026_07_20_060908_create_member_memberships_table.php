@@ -11,14 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('payments', function (Blueprint $table) {
+        Schema::create('member_memberships', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->foreignId('membership_package_id')->constrained()->onDelete('cascade');
-            $table->decimal('amount', 10, 2);
-            $table->enum('method', ['transfer', 'gateway']);
-            $table->enum('status', ['pending', 'paid', 'failed'])->default('pending');
-            $table->timestamp('paid_at')->nullable();
+            $table->foreignId('pricing_package_id')->constrained()->onDelete('cascade');
+            $table->integer('sessions_remaining');
+            $table->date('expired_at');
+            $table->enum('status', ['active', 'expired'])->default('active');
             $table->timestamps();
         });
     }
@@ -28,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('payments');
+        Schema::dropIfExists('member_memberships');
     }
 };
