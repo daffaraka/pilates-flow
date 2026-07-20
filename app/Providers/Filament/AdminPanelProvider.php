@@ -26,10 +26,11 @@ class AdminPanelProvider extends PanelProvider
         return $panel
             ->default()
             ->id('admin')
-            ->path('admin')
+            ->path('internal')
             ->login()
+            ->darkMode(false)
             ->colors([
-                'primary' => Color::Amber,
+                'primary' => '#7C9885',
             ])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\Filament\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\Filament\Pages')
