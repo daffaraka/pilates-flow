@@ -61,10 +61,10 @@ export default function Sidebar({ className = '' }) {
                 <div>
                     <p className="px-3 text-xs font-bold tracking-wider text-gray-400 uppercase mb-2">Konten (CMS)</p>
                     <div className="space-y-1">
-                        <NavLink href="/cms/pages" active={url.startsWith('/cms/pages')} icon={FileText}>Halaman</NavLink>
-                        <NavLink href="/cms/posts" active={url.startsWith('/cms/posts')} icon={Edit3}>Artikel Blog</NavLink>
-                        <NavLink href="/cms/testimonials" active={url.startsWith('/cms/testimonials')} icon={MessageSquare}>Testimonial</NavLink>
-                        <NavLink href="/cms/banners" active={url.startsWith('/cms/banners')} icon={ImageIcon}>Promo Banner</NavLink>
+                        <NavLink href={route('pages.index')} active={url.startsWith('/pages')} icon={FileText}>Halaman</NavLink>
+                        <NavLink href={route('blog-posts.index')} active={url.startsWith('/blog-posts')} icon={Edit3}>Artikel Blog</NavLink>
+                        <NavLink href={route('testimonials.index')} active={url.startsWith('/testimonials')} icon={MessageSquare}>Testimonial</NavLink>
+                        <NavLink href={route('promo-banners.index')} active={url.startsWith('/promo-banners')} icon={ImageIcon}>Promo Banner</NavLink>
                     </div>
                 </div>
             </nav>

@@ -32,9 +32,15 @@ Route::middleware(['auth'])->group(function () {
 
     // Operasional
     Route::resource('/schedules', ClassScheduleController::class);
-    Route::resource('/memberships', MembershipController::class);
-    Route::resource('/payments', PaymentController::class);
-    Route::resource('/bookings', BookingController::class);
+    Route::resource('memberships', \App\Http\Controllers\Admin\MembershipController::class);
+    Route::resource('payments', \App\Http\Controllers\Admin\PaymentController::class);
+    Route::resource('bookings', \App\Http\Controllers\Admin\BookingController::class);
+    
+    // CMS Routes
+    Route::resource('pages', \App\Http\Controllers\Admin\PageController::class);
+    Route::resource('blog-posts', \App\Http\Controllers\Admin\BlogPostController::class);
+    Route::resource('testimonials', \App\Http\Controllers\Admin\TestimonialController::class);
+    Route::resource('promo-banners', \App\Http\Controllers\Admin\PromoBannerController::class);
 });
 
 require __DIR__.'/auth.php';
