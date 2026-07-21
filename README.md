@@ -10,6 +10,21 @@ Proyek ini menggunakan *stack* teknologi yang modern untuk menjamin pengalaman p
 - **Database:** MySQL
 - **Tema Desain:** Kustom "Ivory & Sage" (Minimalis, bersih, dan menenangkan, disesuaikan untuk citra studio Pilates / Wellness).
 
+## 🎨 Palet Warna (Color Palette)
+
+Aplikasi ini menggunakan skema warna **Ivory & Sage** yang elegan, kalem, dan minimalis, cocok untuk industri _wellness_ dan studio Pilates. Skema ini di-embed secara langsung ke dalam konfigurasi TailwindCSS (`tailwind.config.js`):
+
+- **Sage (Primary)**:
+  - Sage 500 (`#7C9885`) - Aksen utama (Tombol, Teks Highlight).
+  - Sage 700 (`#4A5D4E`) - Warna dominan gelap (_Sidebar_).
+- **Blush (Secondary)**: 
+  - Blush 500 (`#E8B4A0`) - Aksen sekunder atau *Error*.
+- **Ivory (Background)**: 
+  - Ivory (`#FAF7F2`) - Latar belakang utama aplikasi yang *creamy* dan bersih.
+- **Charcoal (Text)**: 
+  - Charcoal (`#2E2E2E`) - Warna utama teks (mengurangi kontras keras dari hitam murni).
+  - Charcoal Soft (`#8A8378`) - Teks sekunder/label.
+
 ## 🧩 Modul Fitur
 
 Sistem ini terbagi ke dalam tiga pilar operasional utama:
