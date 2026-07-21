@@ -92,3 +92,4 @@ class BlogPostController extends Controller
         
         return redirect()->route('blog-posts.index')->with('success', 'Blog post berhasil dihapus.');
     }
+}

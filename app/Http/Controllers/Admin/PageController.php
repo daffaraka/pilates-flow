@@ -70,3 +70,4 @@ class PageController extends Controller
         $page->delete();
         return redirect()->route('pages.index')->with('success', 'Page berhasil dihapus.');
     }
+}

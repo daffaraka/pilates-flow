@@ -79,3 +79,4 @@ class PromoBannerController extends Controller
         
         return redirect()->route('promo-banners.index')->with('success', 'Banner berhasil dihapus.');
     }
+}

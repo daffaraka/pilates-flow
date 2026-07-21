@@ -81,3 +81,4 @@ class TestimonialController extends Controller
         
         return redirect()->route('testimonials.index')->with('success', 'Testimoni berhasil dihapus.');
     }
+}
