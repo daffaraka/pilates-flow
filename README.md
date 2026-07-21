@@ -1,58 +1,107 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# PilatesFlow Dashboard System
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+PilatesFlow adalah aplikasi manajemen operasional dan Content Management System (CMS) untuk studio Pilates, dibangun secara kustom guna memberikan fleksibilitas tanpa batas untuk keperluan administrasi dan konten website publik.
 
-## About Laravel
+## 🚀 Teknologi
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Proyek ini menggunakan *stack* teknologi yang modern untuk menjamin pengalaman pengguna (UX) yang sangat responsif (SPA) serta mudah dikembangkan:
+- **Backend:** Laravel 11.x (PHP 8.3)
+- **Frontend / UI:** React.js 18 + Inertia.js v2 + Tailwind CSS v3
+- **Database:** MySQL
+- **Tema Desain:** Kustom "Ivory & Sage" (Minimalis, bersih, dan menenangkan, disesuaikan untuk citra studio Pilates / Wellness).
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 🧩 Modul Fitur
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Sistem ini terbagi ke dalam tiga pilar operasional utama:
 
-## Learning Laravel
+### 1. Master Data
+Modul fondasi untuk mengatur data primer studio:
+- **Kelas Pilates**: Pengaturan informasi, jenis kelas, tingkat kesulitan, dan kapasitas.
+- **Pelatih (Coaches)**: Pengelolaan data instruktur atau staf yang bertugas mengajar.
+- **Paket Harga (Memberships & Pricing)**: Katalog harga pembelian akses per kedatangan (*drop-in*) atau berlangganan.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### 2. Operasional
+Modul untuk administrasi harian dan lalu lintas klien:
+- **Jadwal Kelas (Schedules)**: Kalender kelas kapan kelas diadakan beserta pelatihnya.
+- **Membership**: Manajemen anggota, pelacakan masa aktif (*start/end date*).
+- **Pembayaran (Payments)**: Perekaman transaksi untuk setiap anggota dengan multi-opsi (Cash, Transfer, Card) dan status (*Lunas / Belum Lunas*).
+- **Booking (Reservasi)**: Registrasi kehadiran/reservasi slot untuk jadwal kelas tertentu.
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 3. CMS (Content Management System)
+Sistem pengelola konten yang akan terhubung dengan _Public Front-end_ (berbasis Next.js):
+- **Halaman (Pages)**: Mengelola halaman statis (Tentang Kami, dll.) dilengkapi SEO _meta descriptions_ dan sistem _Slug_.
+- **Artikel Blog (Blog Posts)**: Publikasi berita, fitur *cover image*, dan filter _draft_ vs _published_.
+- **Testimonial**: Mengelola _review_ klien, sistem _rating_ (1-5), kurasi tampilan halaman utama.
+- **Promo Banner**: _Slider_ kampanye iklan di aplikasi, diatur menggunakan parameter waktu aktif (_start & end date_).
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+## 📦 Panduan Instalasi (Development)
 
-## Agentic Development
+Jika Anda ingin menjalankan aplikasi ini di lokal, ikuti langkah berikut:
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+### Persiapan
+- Pastikan PHP >= 8.2 terinstal
+- Pastikan Composer terinstal
+- Pastikan Node.js dan NPM terinstal (direkomendasikan v18 atau v20+)
+- Pastikan Database MySQL siap (misal via XAMPP, Laragon, atau native)
 
-```bash
-composer require laravel/boost --dev
+### Langkah-langkah:
+1. **Kloning Repositori**
+   ```bash
+   git clone https://github.com/daffaraka/pilates-flow.git
+   cd pilates-flow
+   ```
 
-php artisan boost:install
-```
+2. **Instal Dependensi PHP & Node**
+   ```bash
+   composer install
+   npm install
+   ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+3. **Konfigurasi Environment**
+   ```bash
+   cp .env.example .env
+   ```
+   Atur koneksi database pada `.env`:
+   ```env
+   DB_CONNECTION=mysql
+   DB_HOST=127.0.0.1
+   DB_PORT=3306
+   DB_DATABASE=pilates_flow
+   DB_USERNAME=root
+   DB_PASSWORD=
+   ```
 
-## Contributing
+4. **Generate Key dan Migrate Data**
+   ```bash
+   php artisan key:generate
+   php artisan migrate
+   ```
+   *Catatan: Pastikan Anda menjalankan ini jika ada update migration (contoh: untuk modul CMS).*
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+5. **Symlink Storage Folder**
+   Gambar yang diunggah dari CMS akan disimpan di lokal (storage/app/public). Anda perlu membuat tautan publik:
+   ```bash
+   php artisan storage:link
+   ```
 
-## Code of Conduct
+6. **Jalankan Aplikasi**
+   Buka 2 tab terminal untuk menjalankan Server dan *Vite watcher* (React):
+   
+   *Terminal 1:*
+   ```bash
+   php artisan serve
+   ```
+   
+   *Terminal 2:*
+   ```bash
+   npm run dev
+   ```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Aplikasi admin dapat diakses di `http://127.0.0.1:8000`.
 
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## 📌 Status Fase Pengembangan
+- ✅ **Fase 1**: Fondasi & Routing (Selesai)
+- ✅ **Fase 2**: Implementasi Master Data & Tema UI (Selesai)
+- ✅ **Fase 3**: Integrasi Operasional (Membership, Payment, Booking) (Selesai)
+- ✅ **Fase 4**: Modul CMS & Penggantian Total Filament (Selesai)
+- 🚧 **Fase 5 (Rencana Selanjutnya)**: Otorisasi berbasis peran (*Roles & Permissions*) menggunakan Spatie, serta integrasi API publik.
