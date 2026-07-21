@@ -38,3 +38,4 @@ class BookingController extends Controller
         $booking->delete();
         return redirect()->route('bookings.index')->with('success', 'Data booking berhasil dihapus.');
     }
+}

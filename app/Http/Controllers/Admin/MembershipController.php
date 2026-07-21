@@ -68,3 +68,4 @@ class MembershipController extends Controller
         $membership->delete();
         return redirect()->route('memberships.index')->with('success', 'Membership berhasil dihapus.');
     }
+}

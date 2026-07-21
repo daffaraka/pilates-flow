@@ -46,3 +46,4 @@ class PaymentController extends Controller
         $payment->delete();
         return redirect()->route('payments.index')->with('success', 'Data pembayaran berhasil dihapus.');
     }
+}
