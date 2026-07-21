@@ -2,9 +2,14 @@
 
 use Illuminate\Support\Facades\Route;
 
-// Redirect root to admin panel
+// Redirect root to Welcome page (Customer Frontend)
 Route::get('/', function () {
-    return redirect('/dashboard');
+    return Inertia::render('Welcome', [
+        'canLogin' => Route::has('login'),
+        'canRegister' => Route::has('register'),
+        'laravelVersion' => Illuminate\Foundation\Application::VERSION,
+        'phpVersion' => PHP_VERSION,
+    ]);
 });
 
 // We keep the old controllers (BookingController, PackageController, ScheduleController) 
