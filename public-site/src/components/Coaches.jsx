@@ -35,7 +35,7 @@ export default function Coaches() {
   const totalDots = maxIndex + 1;
 
   return (
-    <section className="py-24 bg-ivory text-foreground overflow-hidden">
+    <section id="coaches" className="py-24 bg-ivory text-foreground overflow-hidden">
       <div className="max-w-7xl mx-auto px-4">
         
         {/* Header */}
