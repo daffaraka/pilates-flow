@@ -6,19 +6,19 @@ export default function Client() {
             name: "Sarah Jenkins",
             date: "12 Juli 2026",
             feedback:
-                "Jujurly PilatesFlow bener-bener game changer banget buat aku! Instrukturnya super sabar & fasilitasnya aesthetic parah. Back pain aku auto minggat semenjak rajin ikut Reformer class! ✨",
+                "Jujurly PilatesFlow bener-bener game changer! Back pain auto minggat semenjak ikut Reformer class! ✨",
         },
         {
             name: "Budi Santoso",
             date: "05 Juni 2026",
             feedback:
-                "Awalnya sempet fomo pengen nyoba Pilates tapi takut ga kuat. Untung Mat Foundation class-nya beginner friendly abis. Studio vibes-nya juga healing banget, super zen! 🧘‍♀️",
+                "Awalnya fomo, tapi ternyata beginner friendly abis. Studio vibes-nya super zen! 🧘‍♀️",
         },
         {
             name: "Elena Rodriguez",
             date: "28 Mei 2026",
             feedback:
-                "Ambil Private Coaching buat recovery lutut and it's literally the best decision ever! Coach-nya detail banget perhatiin anatomi & nyesuain gerakan. 10/10 highly recommend! 💯",
+                "Recovery lutut pakai Private Coaching literally the best decision ever! 10/10 highly recommend! 💯",
         },
     ];
 
@@ -38,19 +38,20 @@ export default function Client() {
                     {testimonials.map((testimonial, index) => (
                         <div key={index} className="flex flex-col">
                             {/* Chat Bubble */}
-                            <div className="bg-white text-foreground/80 leading-relaxed p-6 md:p-8 rounded-3xl rounded-bl-none shadow-sm border border-blush/20 font-light text-lg mb-6 relative">
-                                "{testimonial.feedback}"
-                                {/* Custom Tail (optional fallback if rounded-bl-none isn't enough, but usually it looks great as a bubble) */}
-                            </div>
-
-                            {/* Author & Date below the bubble */}
-                            <div className="flex flex-col ml-2">
-                                <h4 className="font-medium text-foreground tracking-wide">
-                                    {testimonial.name}
-                                </h4>
-                                <p className="text-sm text-foreground/50 tracking-wider">
-                                    {testimonial.date}
+                            <div className="bg-white p-6 md:p-8 rounded-3xl rounded-bl-none shadow-sm border border-blush/20 relative flex flex-col h-full">
+                                <p className="text-foreground/80 leading-relaxed font-light text-lg flex-1 mb-6">
+                                    "{testimonial.feedback}"
                                 </p>
+                                
+                                {/* Author & Date inside the bubble */}
+                                <div className="flex flex-col mt-auto pt-4 border-t border-blush/30">
+                                    <h4 className="font-bold text-foreground tracking-wide">
+                                        {testimonial.name}
+                                    </h4>
+                                    <p className="text-xs text-foreground/50 tracking-wider mt-1">
+                                        {testimonial.date}
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     ))}
