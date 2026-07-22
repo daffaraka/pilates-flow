@@ -8,10 +8,49 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-sage: #8a9a86;
-  --color-sage-light: #a4b3a0;
-  --color-blush: #e8d5cc;
-  --color-ivory: #fdfbf7;
+  
+  /* SAGE PALETTE */
+  --color-sage-50: #f4f6f4;
+  --color-sage-100: #e8ece7;
+  --color-sage-200: #c6d1c3;
+  --color-sage-300: #a4b3a0;
+  --color-sage-400: #97a693;
+  --color-sage: #8a9a86; /* Base 500 */
+  --color-sage-500: #8a9a86;
+  --color-sage-600: #6e7b6b;
+  --color-sage-700: #535c50;
+  --color-sage-800: #373e36;
+  --color-sage-900: #1c1f1b;
+  --color-sage-950: #0e100e;
+
+  /* BLUSH PALETTE */
+  --color-blush-50: #fdfaf9;
+  --color-blush-100: #f8f0ec;
+  --color-blush: #e8d5cc; /* Base 200 */
+  --color-blush-200: #e8d5cc;
+  --color-blush-300: #d8baab;
+  --color-blush-400: #c79f8a;
+  --color-blush-500: #b68369;
+  --color-blush-600: #96674e;
+  --color-blush-700: #76503b;
+  --color-blush-800: #563a2a;
+  --color-blush-900: #39261c;
+  --color-blush-950: #261912;
+
+  /* IVORY PALETTE */
+  --color-ivory: #fdfbf7; /* Base 50 */
+  --color-ivory-50: #fdfbf7;
+  --color-ivory-100: #f5eee0;
+  --color-ivory-200: #ebe0c9;
+  --color-ivory-300: #e1d1b2;
+  --color-ivory-400: #d8c39b;
+  --color-ivory-500: #ceb584;
+  --color-ivory-600: #b39b69;
+  --color-ivory-700: #917d52;
+  --color-ivory-800: #6f5e3c;
+  --color-ivory-900: #4c4128;
+  --color-ivory-950: #292214;
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }

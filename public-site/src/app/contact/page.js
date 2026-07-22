@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { MapPin, MessageCircle, Mail, Camera } from 'lucide-react';
 export const metadata = {
   title: 'Contact Us | Pilates Studio',
   description: 'Get in touch with us for class bookings, inquiries, or more information about our Pilates studio.',
@@ -48,7 +48,7 @@ export default async function ContactPage() {
               
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
-                  <div className="p-2 bg-white/20 rounded-lg">📍</div>
+                  <div className="p-2 bg-white/20 rounded-lg"><MapPin className="w-5 h-5 text-white" /></div>
                   <div>
                     <h3 className="font-semibold text-lg mb-1">Visit Us</h3>
                     <p className="text-white/80">{settings.address}</p>
@@ -56,7 +56,7 @@ export default async function ContactPage() {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="p-2 bg-white/20 rounded-lg">💬</div>
+                  <div className="p-2 bg-white/20 rounded-lg"><MessageCircle className="w-5 h-5 text-white" /></div>
                   <div>
                     <h3 className="font-semibold text-lg mb-1">WhatsApp</h3>
                     <p className="text-white/80">{settings.whatsapp_number}</p>
@@ -64,7 +64,7 @@ export default async function ContactPage() {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="p-2 bg-white/20 rounded-lg">✉️</div>
+                  <div className="p-2 bg-white/20 rounded-lg"><Mail className="w-5 h-5 text-white" /></div>
                   <div>
                     <h3 className="font-semibold text-lg mb-1">Email</h3>
                     <p className="text-white/80">{settings.email}</p>
@@ -72,7 +72,7 @@ export default async function ContactPage() {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="p-2 bg-white/20 rounded-lg">📸</div>
+                  <div className="p-2 bg-white/20 rounded-lg"><Camera className="w-5 h-5 text-white" /></div>
                   <div>
                     <h3 className="font-semibold text-lg mb-1">Instagram</h3>
                     <p className="text-white/80">{settings.instagram}</p>
