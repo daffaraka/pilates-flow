@@ -36,17 +36,15 @@ export default function Client() {
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
                     {testimonials.map((testimonial, index) => (
-                        <div
-                            key={index}
-                            className="flex flex-col border-t border-sage/30 pt-8"
-                        >
-                            {/* Feedback Text */}
-                            <p className="text-foreground/80 leading-relaxed mb-8 flex-1 font-light text-lg">
+                        <div key={index} className="flex flex-col">
+                            {/* Chat Bubble */}
+                            <div className="bg-white text-foreground/80 leading-relaxed p-6 md:p-8 rounded-3xl rounded-bl-none shadow-sm border border-blush/20 font-light text-lg mb-6 relative">
                                 "{testimonial.feedback}"
-                            </p>
+                                {/* Custom Tail (optional fallback if rounded-bl-none isn't enough, but usually it looks great as a bubble) */}
+                            </div>
 
-                            {/* Author & Date */}
-                            <div className="mt-auto flex flex-col gap-1">
+                            {/* Author & Date below the bubble */}
+                            <div className="flex flex-col ml-2">
                                 <h4 className="font-medium text-foreground tracking-wide">
                                     {testimonial.name}
                                 </h4>
