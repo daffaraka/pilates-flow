@@ -6,19 +6,19 @@ export default function Client() {
             name: "Sarah Jenkins",
             date: "12 Juli 2026",
             feedback:
-                "PilatesFlow benar-benar mengubah cara saya memandang olahraga. Instrukturnya sangat sabar dan fasilitasnya luar biasa. Sakit punggung saya jauh berkurang setelah rutin ikut kelas Reformer!",
+                "Jujurly PilatesFlow bener-bener game changer banget buat aku! Instrukturnya super sabar & fasilitasnya aesthetic parah. Back pain aku auto minggat semenjak rajin ikut Reformer class! ✨",
         },
         {
             name: "Budi Santoso",
             date: "05 Juni 2026",
             feedback:
-                "Awalnya saya ragu karena baru pertama kali mencoba Pilates. Tapi kelas Mat Foundation sangat mudah diikuti untuk pemula. Suasana studionya juga sangat menenangkan.",
+                "Awalnya sempet fomo pengen nyoba Pilates tapi takut ga kuat. Untung Mat Foundation class-nya beginner friendly abis. Studio vibes-nya juga healing banget, super zen! 🧘‍♀️",
         },
         {
             name: "Elena Rodriguez",
             date: "28 Mei 2026",
             feedback:
-                "Saya mengambil Private Coaching untuk pemulihan cedera lutut. Coach sangat paham anatomi tubuh dan menyesuaikan setiap gerakan agar aman untuk saya.",
+                "Ambil Private Coaching buat recovery lutut and it's literally the best decision ever! Coach-nya detail banget perhatiin anatomi & nyesuain gerakan. 10/10 highly recommend! 💯",
         },
     ];
 
@@ -27,10 +27,10 @@ export default function Client() {
             <div className="max-w-[1200px] mx-auto">
                 <div className="text-center mb-20">
                     <h2 className="text-4xl md:text-5xl font-serif font-light mb-6 text-foreground tracking-wide">
-                        Client Feedback
+                        Vibe Check ✨
                     </h2>
                     <p className="text-foreground/60 text-lg max-w-xl mx-auto font-light">
-                        Pengalaman jujur dari mereka yang telah berlatih dan bertumbuh bersama kami.
+                        No cap, ini *real review* dari mereka yang udah buktiin sendiri *healing* bareng PilatesFlow. Spill the tea! 🍵
                     </p>
                 </div>
 
