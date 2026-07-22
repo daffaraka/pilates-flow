@@ -32,6 +32,16 @@ const services = [
             </svg>
         ),
     },
+    {
+        title: "Pilates Therapy (Lansia)",
+        description:
+            "Kelas khusus lansia untuk memelihara kesehatan tulang, postur, sendi, dan keseimbangan tubuh dengan gerakan yang aman.",
+        icon: (
+            <svg className="w-6 h-6 text-[#DDA77B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+            </svg>
+        ),
+    },
 ];
 
 export default function Services() {
@@ -57,7 +67,7 @@ export default function Services() {
                 </div>
 
                 {/* Grid Services */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     {services.map((service, index) => (
                         <div key={index} className="flex flex-col">
                             <div className="w-16 h-16 rounded-full bg-[#2A2A2A] flex items-center justify-center mb-6">
