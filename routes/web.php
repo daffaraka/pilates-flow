@@ -1,4 +1,13 @@
 <?php
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\PilatesClassController;
+use App\Http\Controllers\Admin\CoachController;
+use App\Http\Controllers\Admin\PricingPackageController;
+use App\Http\Controllers\Admin\ClassScheduleController;
+use App\Http\Controllers\Admin\MembershipController;
+use App\Http\Controllers\Admin\PaymentController;
+use App\Http\Controllers\Admin\BookingController;
+use Inertia\Inertia;
 
 use Illuminate\Support\Facades\Route;
 
@@ -15,15 +24,6 @@ Route::get('/', function () {
 // We keep the old controllers (BookingController, PackageController, ScheduleController) 
 // as archive in the codebase.
 
-use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Admin\PilatesClassController;
-use App\Http\Controllers\Admin\CoachController;
-use App\Http\Controllers\Admin\PricingPackageController;
-use App\Http\Controllers\Admin\ClassScheduleController;
-use App\Http\Controllers\Admin\MembershipController;
-use App\Http\Controllers\Admin\PaymentController;
-use App\Http\Controllers\Admin\BookingController;
-use Inertia\Inertia;
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
