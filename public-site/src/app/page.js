@@ -2,6 +2,7 @@ import Hero from '../components/Hero';
 import Services from '../components/Services';
 import Facilities from '../components/Facilities';
 import Coaches from '../components/Coaches';
+import Pricing from '../components/Pricing';
 import Client from '../components/Client';
 
 export default function Home() {
@@ -11,6 +12,7 @@ export default function Home() {
       <Services />
       <Facilities />
       <Coaches />
+      <Pricing />
       <Client />
     </main>
   );
