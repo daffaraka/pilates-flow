@@ -3,6 +3,7 @@ import { Head, Link } from "@inertiajs/react";
 import ThemeSwitcher from "@/Components/ThemeSwitcher";
 import Services from "./Welcome/Services";
 import Coaches from "./Welcome/Coaches";
+import Testimonials from "./Welcome/Testimonials";
 
 export default function Welcome({ auth }) {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -196,6 +197,10 @@ export default function Welcome({ auth }) {
 
             {/* 4. Our Coaches Section (Light) */}
             <Coaches></Coaches>
+
+            {/* 5. Testimonials Section (Light) */}
+            <Testimonials></Testimonials>
+            
             <ThemeSwitcher />
         </div>
     );
