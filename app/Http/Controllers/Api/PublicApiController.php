@@ -28,8 +28,26 @@ class PublicApiController extends Controller
 
     public function page($slug): JsonResponse
     {
-        $page = Page::where('slug', $slug)->where('is_active', true)->firstOrFail();
+        $page = Page::where('slug', $slug)->where('is_published', true)->firstOrFail();
         return response()->json($page);
+    }
+
+    public function blogPosts(): JsonResponse
+    {
+        $posts = \App\Models\BlogPost::where('is_published', true)
+            ->where('published_at', '<=', now())
+            ->orderBy('published_at', 'desc')
+            ->get();
+        return response()->json($posts);
+    }
+
+    public function blogPost($slug): JsonResponse
+    {
+        $post = \App\Models\BlogPost::where('slug', $slug)
+            ->where('is_published', true)
+            ->where('published_at', '<=', now())
+            ->firstOrFail();
+        return response()->json($post);
     }
 
     public function testimonials(): JsonResponse
